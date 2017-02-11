@@ -8,7 +8,10 @@ import {
     EventEmitter,
     ExistingProvider,
     ViewChild,
+    ContentChild,
     ViewEncapsulation,
+    TemplateRef,
+    Optional,
     forwardRef
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
@@ -55,6 +58,11 @@ export class SelectComponent
     @ViewChild('selection') selectionSpan: any;
     @ViewChild('dropdown') dropdown: SelectDropdownComponent;
     @ViewChild('filterInput') filterInput: any;
+
+    @ContentChild('selectionTemplate') selectionTemplate: TemplateRef<any>;
+    @ContentChild('selectOptionTemplate') selectOptionTemplate: TemplateRef<any>;
+    @ContentChild('placeholderTemplate') placeholderTemplate: TemplateRef<any>;
+    @ContentChild('notFoundTemplate') notFoundTemplate: TemplateRef<any>;
 
     private _value: Array<any> = [];
     optionList: OptionList;
@@ -193,7 +201,7 @@ export class SelectComponent
 
     // Multiple deselect option.
 
-    onDeselectOptionClick(option: Option) {
+    onDeselectOptionClick = (option: Option) => {
         this.clearClicked = true;
         this.deselectOption(option);
     }

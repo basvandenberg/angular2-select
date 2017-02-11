@@ -119,6 +119,23 @@ var packages = {
 | clear         | -                     | Deselect all selected options.          |
 | select        | `value: string`       | Select the option with the given value. |
 
+## Templates
+
+The following blocks can be replaced with templates inside the `ng-select` component, as:
+
+```html
+<ng-select>
+    <template #templateName let-contextVariable="templateVariable">{{templateVariable}}</template>
+</ng-select>
+```
+
+| Template Name          | Context Variables                                       | Description                             |
+| ---------------------- | ------------------------------------------------------- | --------------------------------------- |
+| selectionTemplate      | `option: Option`                                        | Template for selection in dropdown.     |
+| selectOptionTemplate   | `option: Option` <br> `onDeselectOptionClick: Function` | Select option(s) template.              |
+| placeholderTemplate    | -                                                       | Placeholder template.                   |
+| notFoundTemplate       | -                                                       | Not Found template.                     |
+
 ## Limitations
 
 ### Scalability
