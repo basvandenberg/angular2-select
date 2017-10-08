@@ -1,6 +1,8 @@
 /dist
 /node_modules
 /docs/*.map
+/package
+/.idea
 
 npm-debug.log
 yarn-error.log
@@ -9,3 +11,5 @@ yarn-error.log
 *.orig
 *.swp
 *.tgz
+
+.npmrc
